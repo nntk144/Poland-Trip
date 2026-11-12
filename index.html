@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>폴란드 비즈니스 출장 원데이 가이드</title>
+    <!-- Tailwind CSS 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#080D1A',
+                            900: '#0F172A',
+                            800: '#18233C',
+                        },
+                        gold: {
+                            400: '#E5C158',
+                            500: '#D4AF37',
+                            600: '#B59024',
+                        },
+                        burgundy: {
+                            800: '#6B1D2F',
+                            900: '#4A101E',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 스크롤바 숨김 및 부드러운 터치 스크롤 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #080D1A;
+            color: #F1F5F9;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .gold-border-card {
+            background: linear-gradient(145deg, #131D33 0%, #0D1424 100%);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .gold-border-card.selected {
+            border: 1.5px solid #D4AF37;
+            background: linear-gradient(145deg, #1E2942 0%, #141C30 100%);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center bg-navy-950 font-sans antialiased">
+
+    <!-- 모바일 앱 컨테이너 (최대 너비 max-w-md로 스마트폰 최적화) -->
+    <div class="w-full max-w-md min-h-screen bg-navy-900 shadow-2xl relative flex flex-col pb-24 border-x border-slate-800/80">
+        
+        <!-- 상단 헤더 -->
+        <header class="sticky top-0 z-30 bg-navy-950/95 backdrop-blur-md border-b border-gold-500/20 px-4 pt-4 pb-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-[11px] tracking-widest text-gold-400 font-serif uppercase">Executive One-Day Concierge</p>
+                    <h1 class="text-lg font-bold text-slate-100 mt-0.5">폴란드 출장 원데이 가이드</h1>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-burgundy-800/80 text-rose-200 border border-rose-500/30">
+                    상사 동행 맞춤
+                </span>
+            </div>
+
+            <!-- 메인 탭 네비게이션 (4개 독립 탭) -->
+            <nav class="grid grid-cols-4 gap-1 mt-3.5 bg-navy-900 p-1 rounded-xl border border-slate-800">
+                <button onclick="switchTab('food')" id="tab-food" class="tab-btn py-2 px-1 rounded-lg text-[11px] font-bold transition-all bg-gold-500 text-navy-950 shadow">
+                    🍽️ 로컬푸드
+                </button>
+                <button onclick="switchTab('phrases')" id="tab-phrases" class="tab-btn py-2 px-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-slate-200 transition-all">
+                    🗣️ 폴란드어
+                </button>
+                <button onclick="switchTab('tips')" id="tab-tips" class="tab-btn py-2 px-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-slate-200 transition-all">
+                    🥂 식당팁
+                </button>
+                <button onclick="switchTab('spots')" id="tab-spots" class="tab-btn py-2 px-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-slate-200 transition-all">
+                    🏛️ 도시코스
+                </button>
+            </nav>
+        </header>
+
+        <!-- ========================================== -->
+        <!-- TAB 1: 로컬 푸드 12선 & 오늘의 식사 조합기 -->
+        <!-- ========================================== -->
+        <main id="section-food" class="flex-1 px-4 pt-4 space-y-4">
+            <!-- 안내 배너 -->
+            <div class="bg-burgundy-900/50 border border-rose-500/20 rounded-xl p-3 flex items-start gap-2.5">
+                <span class="text-base mt-0.5">💡</span>
+                <p class="text-xs text-slate-200 leading-relaxed">
+                    폴란드 식당은 1인분 양이 매우 많습니다. <strong class="text-gold-400">식전 수프 각 1개 + 메인 1~2개 셰어</strong> 조합으로 아래 메뉴를 담아 상사분과 함께 고르세요.
+                </p>
+            </div>
+
+            <!-- 음식 카테고리 필터 -->
+            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                <button onclick="filterFood('all')" data-filter="all" class="food-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gold-500 text-navy-950">
+                    전체 (12)
+                </button>
+                <button onclick="filterFood('soup')" data-filter="soup" class="food-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">
+                    🥣 식전 수프 (3)
+                </button>
+                <button onclick="filterFood('main')" data-filter="main" class="food-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">
+                    🍖 메인 요리 (6)
+                </button>
+                <button onclick="filterFood('special')" data-filter="special" class="food-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">
+                    🧀 스페셜·간식 (3)
+                </button>
+            </div>
+
+            <!-- 로컬 푸드 리스트 컨테이너 -->
+            <div id="food-list-container" class="space-y-3 pb-6">
+                <!-- JS로 동적 렌더링 -->
+            </div>
+        </main>
+
+        <!-- ========================================== -->
+        <!-- TAB 2: 필수 폴란드어 30선 (식당/호텔/여행) -->
+        <!-- ========================================== -->
+        <main id="section-phrases" class="hidden flex-1 px-4 pt-4 space-y-4 pb-6">
+            <div class="bg-navy-800/80 border border-slate-700 rounded-xl p-3">
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    카드를 터치하시면 <strong class="text-gold-400">직원이나 상대방에게 바로 보여줄 수 있는 큰 글씨 카드</strong>가 열립니다. 상황별 맞춤 회화 30선을 활용하세요.
+                </p>
+            </div>
+
+            <!-- 폴란드어 카테고리 필터 버튼 -->
+            <div class="grid grid-cols-3 gap-2">
+                <button onclick="filterPhrases('dining')" id="phrase-btn-dining" class="phrase-filter-btn py-2 px-2 rounded-xl text-xs font-bold bg-gold-500 text-navy-950 shadow transition">
+                    🍽️ 식당용 (10)
+                </button>
+                <button onclick="filterPhrases('hotel')" id="phrase-btn-hotel" class="phrase-filter-btn py-2 px-2 rounded-xl text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700 transition">
+                    🏨 호텔용 (10)
+                </button>
+                <button onclick="filterPhrases('travel')" id="phrase-btn-travel" class="phrase-filter-btn py-2 px-2 rounded-xl text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700 transition">
+                    🚕 이동·여행 (10)
+                </button>
+            </div>
+
+            <!-- 폴란드어 리스트 컨테이너 -->
+            <div id="polish-phrases-container" class="space-y-2.5">
+                <!-- JS 동적 렌더링 -->
+            </div>
+        </main>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: 상사 동행 식당 팁 & 특징 -->
+        <!-- ========================================== -->
+        <main id="section-tips" class="hidden flex-1 px-4 pt-4 space-y-6 pb-6">
+            
+            <!-- 섹션 A: 상사와 함께 갈 식당 고르는 팁 5가지 -->
+            <section>
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-base font-bold text-gold-400 flex items-center gap-2">
+                        <span>🏆</span> 상사 동행 식당 선택 5계명
+                    </h2>
+                    <span class="text-[11px] text-slate-400">실패 없는 장소 선정</span>
+                </div>
+                <div id="restaurant-tips-container" class="space-y-2.5"></div>
+            </section>
+
+            <!-- 섹션 B: 폴란드 식당의 특징 5가지 -->
+            <section class="pt-3 border-t border-slate-800">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-base font-bold text-gold-400 flex items-center gap-2">
+                        <span>🛎️</span> 폴란드 식당 이용 특징 5가지
+                    </h2>
+                    <span class="text-[11px] text-slate-400">주문·계산 에티켓</span>
+                </div>
+                <div id="restaurant-traits-container" class="space-y-2.5"></div>
+            </section>
+
+            <!-- 섹션 C: 폴란드 음식의 특징 5가지 -->
+            <section class="pt-3 border-t border-slate-800">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-base font-bold text-gold-400 flex items-center gap-2">
+                        <span>🧄</span> 폴란드 음식 문화 특징 5가지
+                    </h2>
+                    <span class="text-[11px] text-slate-400">식재료 및 맛의 결</span>
+                </div>
+                <div id="food-traits-container" class="space-y-2.5"></div>
+            </section>
+
+        </main>
+
+        <!-- ========================================== -->
+        <!-- TAB 4: 거점 도시별 원데이 핵심 볼거리 -->
+        <!-- ========================================== -->
+        <main id="section-spots" class="hidden flex-1 px-4 pt-4 space-y-4 pb-6">
+            <div class="bg-navy-800/80 border border-slate-700 rounded-xl p-3">
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    출장 거점 도시를 선택하시면 <strong class="text-gold-400">체력 부담이 적고 동선이 간결한 반나절~하루 핵심 코스</strong>를 안내합니다. (이동은 Bolt/Uber 택시 권장)
+                </p>
+            </div>
+
+            <!-- 도시 선택 버튼 -->
+            <div class="grid grid-cols-3 gap-2">
+                <button onclick="selectCity('warsaw')" id="city-btn-warsaw" class="city-btn py-2.5 px-2 rounded-xl text-xs font-bold bg-gold-500 text-navy-950 shadow transition">
+                    바르샤바<br><span class="text-[10px] font-normal opacity-80">수도 · 중부</span>
+                </button>
+                <button onclick="selectCity('krakow')" id="city-btn-krakow" class="city-btn py-2.5 px-2 rounded-xl text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700 transition">
+                    크라쿠프<br><span class="text-[10px] font-normal opacity-70">고도 · 남부</span>
+                </button>
+                <button onclick="selectCity('wroclaw')" id="city-btn-wroclaw" class="city-btn py-2.5 px-2 rounded-xl text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700 transition">
+                    브로츠와프<br><span class="text-[10px] font-normal opacity-70">운하 · 서부</span>
+                </button>
+            </div>
+
+            <!-- 선택된 도시 코스 상세 영역 -->
+            <div id="city-spots-container" class="space-y-3">
+                <!-- JS로 동적 렌더링 -->
+            </div>
+        </main>
+
+        <!-- ========================================== -->
+        <!-- 하단 플로팅 바: 오늘의 식사 조합기 (찜하기) -->
+        <!-- ========================================== -->
+        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
+            <div class="w-full max-w-md px-4 pb-4 pointer-events-auto">
+                <button onclick="openComboModal()" class="w-full bg-gradient-to-r from-burgundy-800 via-burgundy-900 to-navy-950 border border-gold-500/60 rounded-2xl p-3.5 shadow-2xl flex items-center justify-between active:scale-[0.99] transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gold-500/20 border border-gold-400/50 flex items-center justify-center text-gold-400 font-bold text-sm" id="combo-count-badge">
+                            3
+                        </div>
+                        <div class="text-left">
+                            <p class="text-xs font-bold text-slate-100">오늘의 식사 조합표 보기</p>
+                            <p class="text-[11px] text-gold-400 truncate max-w-[200px]" id="combo-preview-text">주렉 · 피에로기 · 골롱카</p>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1.5 rounded-lg bg-gold-500 text-navy-950 text-xs font-bold">
+                        주문서 열기
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 모달: 오늘의 식사 조합표 (직원/상사 제시용) -->
+        <!-- ========================================== -->
+        <div id="combo-modal" onclick="closeComboModal()" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-4 max-w-md mx-auto">
+            <div onclick="event.stopPropagation()" class="bg-navy-900 border border-gold-500/40 rounded-3xl w-full max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+                <!-- 모달 헤더 -->
+                <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-navy-950">
+                    <div>
+                        <p class="text-[10px] text-gold-400 uppercase tracking-wider font-serif">Today's Dining Selection</p>
+                        <h3 class="text-base font-bold text-slate-100">오늘의 폴란드 식사 조합</h3>
+                    </div>
+                    <button onclick="closeComboModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-sm hover:bg-slate-700">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- 모달 본문: 선택된 메뉴 리스트 -->
+                <div class="p-4 overflow-y-auto space-y-3 flex-1">
+                    <p class="text-xs text-slate-400">
+                        식당 직원에게 아래 폴란드어 메뉴명을 그대로 보여주시면 바로 주문이 가능합니다.
+                    </p>
+                    <div id="combo-modal-list" class="space-y-2.5">
+                        <!-- JS 렌더링 -->
+                    </div>
+                </div>
+
+                <!-- 모달 푸터 -->
+                <div class="p-4 border-t border-slate-800 bg-navy-950 flex gap-2">
+                    <button onclick="resetCombo()" class="px-4 py-3 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700">
+                        전체 비우기
+                    </button>
+                    <button onclick="closeComboModal()" class="flex-1 py-3 rounded-xl bg-gold-500 text-navy-950 text-xs font-bold hover:bg-gold-400 transition">
+                        확인 완료 (닫기)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 모달: 직원 제시용 폴란드어 큰 글씨 카드 -->
+        <!-- ========================================== -->
+        <div id="phrase-modal" onclick="closePhraseModal()" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-5 max-w-md mx-auto">
+            <div onclick="event.stopPropagation()" class="bg-navy-900 border-2 border-gold-500 rounded-3xl w-full p-6 text-center shadow-2xl space-y-4">
+                <span id="phrase-modal-situation" class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-burgundy-800 text-rose-200 border border-rose-500/30">
+                    상황
+                </span>
+                <div class="py-4 border-y border-slate-800 space-y-2">
+                    <p id="phrase-modal-pl" class="text-2xl sm:text-3xl font-bold text-gold-400 leading-snug break-keep">
+                        폴란드어 원문
+                    </p>
+                    <p id="phrase-modal-en" class="text-xs text-slate-400 italic">
+                        English translation
+                    </p>
+                </div>
+                <div class="space-y-1">
+                    <p id="phrase-modal-ko" class="text-base font-bold text-slate-100">한국어 뜻</p>
+                    <p id="phrase-modal-pron" class="text-sm text-rose-300 font-medium">발음: [한글 발음]</p>
+                </div>
+                <button onclick="closePhraseModal()" class="w-full mt-2 py-3 rounded-xl bg-gold-500 text-navy-950 text-xs font-bold hover:bg-gold-400 transition">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 자바스크립트 데이터 및 인터랙션 로직 -->
+    <!-- ========================================== -->
+    <script>
+        // 0. 폴란드어 30선 데이터 (식당 10, 호텔 10, 여행/이동 10)
+        const polishPhrases = [
+            // --- 식당용 10선 ---
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '두 명 자리 있을까요?',
+                pl: 'Stolik dla dwóch osób, proszę.',
+                pron: '스톨릭 들라 드부흐 오숩, 프로셰',
+                en: 'A table for two, please.'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '영어 메뉴판 있나요?',
+                pl: 'Czy jest menu po angielsku?',
+                pron: '치 예스트 메뉴 포 안기엘스쿠?',
+                en: 'Do you have an English menu?'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '무탄산 생수로 주세요',
+                pl: 'Woda niegazowana, proszę.',
+                pron: '보다 니에가조바나, 프로셰',
+                en: 'Still water, please.'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '이거랑 같은 거로 두 개 주세요',
+                pl: 'To samo, dwa razy, proszę.',
+                pron: '토 사모, 드바 라지, 프로셰',
+                en: 'Two of the same, please.'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '추천 요리가 무엇인가요?',
+                pl: 'Co poleca szef kuchni?',
+                pron: '초 폴레차 셰프 쿠흐니?',
+                en: 'What does the chef recommend?'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '건배! (건강을 위하여)',
+                pl: 'Na zdrowie!',
+                pron: '나 즈드로비에!',
+                en: 'Cheers! (To your health)'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '음식이 정말 맛있었습니다',
+                pl: 'Było przepyszne!',
+                pron: '비워 프셰피슈네!',
+                en: 'It was delicious!'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '포장(테이크아웃) 가능할까요?',
+                pl: 'Czy można to zapakować na wynos?',
+                pron: '치 모즈나 토 자파코바트 나 위노스?',
+                en: 'Can I take this to go?'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '현금으로 낼게요 / 카드로 할게요',
+                pl: 'Gotówką / Kartą, proszę.',
+                pron: '고투프콘 / 카르통, 프로셰',
+                en: 'By cash / By card, please.'
+            },
+            {
+                category: 'dining',
+                situation: '식당용',
+                ko: '계산서 주세요 (영수증)',
+                pl: 'Rachunek, proszę.',
+                pron: '라후넥, 프로셰',
+                en: 'The bill, please.'
+            },
+
+            // --- 호텔용 10선 ---
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '체크인 하려고 합니다 (예약했어요)',
+                pl: 'Zameldowanie, mam rezerwację.',
+                pron: '자멜도바니에, 맘 레제르바치예',
+                en: 'I would like to check in, I have a reservation.'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '체크아웃 하겠습니다',
+                pl: 'Wymeldowanie, proszę.',
+                pron: '위멜도바니에, 프로셰',
+                en: 'I would like to check out, please.'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '와이파이 비밀번호가 무엇인가요?',
+                pl: 'Jakie jest hasło do Wi-Fi?',
+                pron: '야키 예스트 하소 도 와이파이?',
+                en: 'What is the Wi-Fi password?'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '방에 키를 두고 나왔어요',
+                pl: 'Zostawiłem klucz w pokoju.',
+                pron: '조스타비웸 클루치 프 포코유',
+                en: 'I left my key in the room.'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '조식은 몇 시부터인가요?',
+                pl: 'Od której godziny jest śniadanie?',
+                pron: '오드 크토리이 고지니 예스트 시니아다니에?',
+                en: 'What time is breakfast served?'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '짐을 맡아(보관해) 주실 수 있나요?',
+                pl: 'Czy mogę zostawić bagaż?',
+                pron: '치 모게 조스타비트 바가시?',
+                en: 'Can I leave my luggage here?'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '방이 너무 춥습니다 (더워요)',
+                pl: 'W pokoju jest za zimno (za ciepło).',
+                pron: '프 포코유 예스트 자 찜노 (자 치에플로)',
+                en: 'The room is too cold (too warm).'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '택시 한 대 불러주실 수 있나요?',
+                pl: 'Czy może mi pan wezwać taksówkę?',
+                pron: '치 모제 미 판 베즈바치 탁수프켄?',
+                en: 'Could you call a taxi for me?'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '모닝콜 부탁드립니다 (오전 7시)',
+                pl: 'Proszę o budzenie na siódmą rano.',
+                pron: '프로셰 오 부제니에 나 시우드몬 라노',
+                en: 'Please give me a wake-up call at 7 AM.'
+            },
+            {
+                category: 'hotel',
+                situation: '호텔용',
+                ko: '도와주셔서 감사합니다',
+                pl: 'Dziękuję za pomoc.',
+                pron: '젱쿠예 자 포모츠',
+                en: 'Thank you for your help.'
+            },
+
+            // --- 이동 및 여행용 10선 ---
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '안녕하세요 / 감사합니다',
+                pl: 'Dzień dobry / Dziękuję',
+                pron: '진 도브리 / 젱쿠예',
+                en: 'Hello / Thank you'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '실례합니다 / 저기요',
+                pl: 'Przepraszam',
+                pron: '프셰프라샴',
+                en: 'Excuse me / Sorry'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '화장실이 어디에 있나요?',
+                pl: 'Gdzie jest toaleta?',
+                pron: '그지에 예스트 토알레타?',
+                en: 'Where is the restroom?'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '여기가 어디인가요? (길을 잃었어요)',
+                pl: 'Gdzie jesteśmy? (Zubiłem się)',
+                pron: '그지에 예스테슈미?',
+                en: 'Where are we? / I am lost.'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '이 근처에 ATM이 어디 있나요?',
+                pl: 'Gdzie jest najbliższy bankomat?',
+                pron: '그지에 예스트 나이블리쉬 방코마트?',
+                en: 'Where is the nearest ATM?'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '영어로 소통 가능하신가요?',
+                pl: 'Czy mówisz po angielsku?',
+                pron: '치 무비슈 포 안기엘스쿠?',
+                en: 'Do you speak English?'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '이거 얼마인가요?',
+                pl: 'Ile to kosztuje?',
+                pron: '일레 토 코슈투예?',
+                en: 'How much does this cost?'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '너무 비싸네요 / 깎아주세요',
+                pl: 'Za drogo / Czy można taniej?',
+                pron: '자 도로 / 치 모즈나 타니에이?',
+                en: 'Too expensive / Any discount?'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '사진 한 장 찍어주실 수 있나요?',
+                pl: 'Czy może mi pan zrobić zdjęcie?',
+                pron: '치 모제 미 판 즈로비치 즈덴치예?',
+                en: 'Could you take a photo for me?'
+            },
+            {
+                category: 'travel',
+                situation: '이동·여행',
+                ko: '안녕히 가세요 (좋은 하루 되세요)',
+                pl: 'Do widzenia / Miłego dnia!',
+                pron: '도 비제니아 / 미웨고 드니아!',
+                en: 'Goodbye / Have a nice day!'
+            }
+        ];
+
+        // 1. 폴란드 로컬 푸드 12선 데이터
+        const localFoods = [
+            {
+                id: 'zurek',
+                category: 'soup',
+                categoryLabel: '식전 수프',
+                nameKo: '주렉',
+                namePl: 'Żurek (w chlebie)',
+                region: '폴란드 전역 · 중부 정통',
+                tag: '한국인 1위 · 해장 느낌',
+                desc: '호밀 발효액으로 끓여 새콤하고 구수한 국물에 훈제 소시지, 베이컨, 삶은 달걀을 넣은 대표 수프입니다. 속을 파낸 둥근 호밀빵 그릇(w chlebie)에 담아 나오는 메뉴를 고르시면 비주얼과 맛 모두 최고입니다.'
+            },
+            {
+                id: 'barszcz',
+                category: 'soup',
+                categoryLabel: '식전 수프',
+                nameKo: '바르슈치',
+                namePl: 'Barszcz Czerwony z uszkami',
+                region: '폴란드 전역 · 연회 대표식',
+                tag: '깔끔한 입맛 돋우기',
+                desc: '붉은 비트(Beet)를 우려낸 루비빛의 맑고 새콤달콤한 수프입니다. 고기·버섯 소를 채운 한입 크기 만두인 우슈카(Uszka)가 띄워져 나오며, 기름진 고기 메인 요리와 궁합이 아주 좋습니다.'
+            },
+            {
+                id: 'flaki',
+                category: 'soup',
+                categoryLabel: '식전 수프',
+                nameKo: '플라키',
+                namePl: 'Flaki Wołowe',
+                region: '바르샤바 · 마조프셰 주',
+                tag: '한국식 내장탕 결',
+                desc: '소의 양(내장)을 얇게 채 썰어 진한 소고기 육수와 마조람 허브로 푹 끓여낸 전통 내장탕입니다. 얼큰하고 구수한 국물 요리를 선호하시는 상사분께 특히 추천합니다.'
+            },
+            {
+                id: 'pierogi',
+                category: 'main',
+                categoryLabel: '메인 요리',
+                nameKo: '피에로기 (모둠 만두)',
+                namePl: 'Mix Pierogów (Ruskie / z mięsem)',
+                region: '폴란드 전역 · 크라쿠프 유명',
+                tag: '호불호 없는 국민식',
+                desc: '쫄깃한 만두피에 감자·치즈(Ruskie), 다진 고기(z mięsem), 절인 양배추·버섯(z kapustą i grzybami) 등을 채워 삶거나 구운 요리입니다. 반반 또는 모둠 플래터(Mix)로 주문해 셰어하기 좋습니다.'
+            },
+            {
+                id: 'golonka',
+                category: 'main',
+                categoryLabel: '메인 요리',
+                nameKo: '골롱카 (폴란드식 족발)',
+                namePl: 'Golonka po polsku',
+                region: '포즈난 · 실레시아 지방',
+                tag: '맥주 안주 최강자',
+                desc: '돼지 정강이 부위를 맥주와 향신료에 삶은 뒤 오븐에 구워 겉은 바삭하고 속살은 부드러운 요리입니다. 알싸한 서양고추냉이(Chrzan)와 겨자 소스를 찍어 먹으면 느끼함이 깔끔하게 잡힙니다.'
+            },
+            {
+                id: 'bigos',
+                category: 'main',
+                categoryLabel: '메인 요리',
+                nameKo: '비고스 (사냥꾼의 스튜)',
+                namePl: 'Bigos Staropolski',
+                region: '폴란드 전역 · 귀족 사냥 유래',
+                tag: '묵은지 돼지고기찜 맛',
+                desc: '절인 양배추(사우어크라우트)에 돼지고기, 훈제 소시지, 말린 버섯, 자두를 넣고 며칠간 푹 끓인 스튜입니다. 한국의 묵은지 고기찜과 묘하게 닮아 감칠맛이 폭발하며 호밀빵과 곁들이기 좋습니다.'
+            },
+            {
+                id: 'schabowy',
+                category: 'main',
+                categoryLabel: '메인 요리',
+                nameKo: '코틀렛 스하보비',
+                namePl: 'Kotlet Schabowy',
+                region: '폴란드 전역 · 가정식 대표',
+                tag: '폴란드식 왕돈가스',
+                desc: '얇게 두드린 돼지 등심에 빵가루를 입혀 바삭하게 튀겨낸 폴란드 정통 커틀릿입니다. 향긋한 딜(Dill)을 뿌린 삶은 감자와 새콤한 양배추 샐러드가 함께 나와 깔끔한 한 끼 식사로 제격입니다.'
+            },
+            {
+                id: 'placki',
+                category: 'main',
+                categoryLabel: '메인 요리',
+                nameKo: '플라츠키 (굴라시 감자전)',
+                namePl: 'Placki po węgiersku',
+                region: '폴란드 전역 · 남부 산악 지방',
+                tag: '바삭한 감자전 + 스튜',
+                desc: '강판에 간 감자를 바삭하게 부쳐낸 폴란드식 감자전(Placki Ziemniaczane) 위에 진한 소고기 굴라시 스튜와 사워크림을 듬뿍 얹어 나오는 메뉴로, 식사와 안주를 동시에 해결할 수 있습니다.'
+            },
+            {
+                id: 'kielbasa',
+                category: 'main',
+                categoryLabel: '메인 요리',
+                nameKo: '키엘바사 (훈제 소시지)',
+                namePl: 'Kiełbasa z grilla',
+                region: '크라쿠프 · 폴란드 전역',
+                tag: '참나무 훈연의 정석',
+                desc: '마늘과 후추, 마조람으로 간을 해 참나무 연기로 훈연한 폴란드 전통 소시지입니다. 그릴에 구워 볶은 양파, 머스터드와 함께 나오며 폴란드 라거 맥주와 최고의 궁합을 자랑합니다.'
+            },
+            {
+                id: 'oscypek',
+                category: 'special',
+                categoryLabel: '스페셜·간식',
+                nameKo: '오스치페크 (구운 훈제 치즈)',
+                namePl: 'Oscypek z żurawiną',
+                region: '자코파네 · 남부 타트라 산맥',
+                tag: '단짠단짠 애피타이저',
+                desc: '타트라 산맥의 양젖으로 만들어 나무 문양 틀에 찍어 훈연한 방추형 치즈입니다. 그릴에 노릇하게 구워 달콤새콤한 크랜베리 잼(Żurawina)을 얹어 먹는 별미 에피타이저입니다.'
+            },
+            {
+                id: 'zapiekanka',
+                category: 'special',
+                categoryLabel: '스페셜·간식',
+                nameKo: '자피에칸카 (바게트 피자)',
+                namePl: 'Zapiekanka Krakowska',
+                region: '크라쿠프 · 카지미에시 지구',
+                tag: '가성비 길거리 명물',
+                desc: '길게 반으로 가른 바게트 위에 볶은 양송이버섯과 치즈를 듬뿍 올려 구운 뒤 케첩과 마늘 소스를 뿌린 오픈 샌드위치입니다. 산책 중 가볍게 출출함을 달랠 때 좋습니다.'
+            },
+            {
+                id: 'pierniki',
+                category: 'special',
+                categoryLabel: '스페셜·간식',
+                nameKo: '피에르니키 (전통 진저브레드)',
+                namePl: 'Pierniki Toruńskie',
+                region: '토룬 (Toruń) · 북중부',
+                tag: '출장 귀국 선물 1순위',
+                desc: '천연 꿀과 생강, 시나몬, 정향 등 향신료를 넣고 구운 폴란드 전통 과자입니다. 다크 초콜릿이나 자두 잼이 코팅된 형태가 많으며 틴케이스 포장이 고급스러워 선물용으로 가장 인기가 높습니다.'
+            }
+        ];
+
+        // 2. 식당 고르는 팁 & 특징 데이터
+        const restaurantTips = [
+            {
+                title: '1. 밀크 바(Bar Mleczny) 대신 레스토랑(Restauracja) 선택',
+                desc: '현지인 백반집인 밀크 바는 직접 배식 줄을 서야 하고 합석이 잦습니다. 상사분과 함께라면 테이블 서비스가 갖춰진 "Restauracja Polska" 또는 "Karczma(전통 주막 식당)" 간판을 고르세요.'
+            },
+            {
+                title: '2. 구시가지 메인 광장 정중앙보다 한 블록 안쪽 골목 공략',
+                desc: '광장 정중앙 노천 식당은 관광객 위주라 가격 대비 맛이 평범합니다. 광장에서 도보 3~5분 거리의 골목에 위치한 구글 평점 4.5 이상 식당이 현지 직장인 회식 명소입니다.'
+            },
+            {
+                title: '3. 벽돌 아치형 지하 홀(Piwnica) 구조 확인하기',
+                desc: '폴란드 고급 전통 레스토랑은 중세 창고를 개조한 지하 벽돌 아치 홀(Piwnica)을 갖춘 곳이 많습니다. 조용하고 웅장해 상사분께 대접하는 분위기를 내기에 최적입니다.'
+            },
+            {
+                title: '4. 구글 리뷰에서 "English menu" 키워드 확인하기',
+                desc: '로컬 색채가 강한 노포는 폴란드어 메뉴판만 있는 경우가 있습니다. 영어 메뉴판과 영어 응대가 가능한 곳을 골라야 메뉴 설명과 주류 추천을 매끄럽게 받을 수 있습니다.'
+            },
+            {
+                title: '5. 저녁 식사(18:00~20:00)는 반드시 사전 예약하기',
+                desc: '유럽 레스토랑은 저녁 식사 회전율이 느려 예약 없이 방문하면 입구 쪽 어수선한 자리에 앉거나 웨이팅이 길어집니다. 구글 지도 연동 예약이나 호텔을 통해 미리 예약하세요.'
+            }
+        ];
+
+        const restaurantTraits = [
+            {
+                title: '1. 식전 호밀빵(Chleb)과 라드 스프레드(Smalec) 제공',
+                desc: '자리에 앉으면 식전 빵과 함께 돼지기름에 양파·사과·허브를 넣고 굳힌 고소한 스프레드(Smalec), 그리고 새콤한 오이 피클이 기본 웰컴 푸드로 나옵니다.'
+            },
+            {
+                title: '2. 계산서는 직접 요청해야 가져다주는 문화',
+                desc: '다 먹은 뒤에도 직원이 영수증을 먼저 주지 않습니다. 계산할 때는 직원을 불러 "라후넥, 프로셰(Rachunek, proszę - 계산서 주세요)"라고 요청해야 합니다.'
+            },
+            {
+                title: '3. 자발적 팁(Napiwek) 문화 (약 10%)',
+                desc: '강제는 아니지만 테이블 서비스를 받는 정식 레스토랑에서는 결제 금액의 10% 내외를 팁으로 남기는 것이 예의입니다. 카드 결제 시 단말기 입력 전에 총액을 말씀하시면 됩니다.'
+            },
+            {
+                title: '4. 생수 주문 시 "탄산 vs 무탄산" 필수 선택',
+                desc: '물을 시키면 탄산수(Gazowana)와 일반 생수(Niegazowana) 중 무엇을 드릴지 반드시 묻습니다. 무료 수돗물은 기본 제공되지 않습니다.'
+            },
+            {
+                title: '5. 수프 → 메인 → 디저트 순차 서빙 방식',
+                desc: '음식을 한 상에 다 차려주는 한국과 달리, 식전 수프를 다 드시면 그릇을 치우고 다음 메인 요리를 내어주는 코스 형태로 천천히 서빙됩니다.'
+            }
+        ];
+
+        const foodTraits = [
+            {
+                title: '1. 발효 채소(사우어크라우트·피클)의 적극적 활용',
+                desc: '소금에 절여 발효시킨 양배추와 오이가 거의 모든 육류 요리에 곁들여집니다. 덕분에 기름진 고기 요리 위주임에도 한국인 입맛에 개운하고 물리지 않습니다.'
+            },
+            {
+                title: '2. 생 허브 딜(Dill)과 사워크림(Śmietana)의 조화',
+                desc: '삶은 감자, 수프, 생선 요리 위에는 향긋한 생 허브 딜이 올라가며, 진한 사워크림을 듬뿍 얹어 풍미와 산미를 동시에 잡는 조리법이 발달했습니다.'
+            },
+            {
+                title: '3. 압도적인 1인분 포션 크기',
+                desc: '메인 요리 1인분 접시에 고기, 감자, 샐러드가 산처럼 쌓여 나옵니다. 두 분이서 수프 각 1개에 메인 1~2개를 주문해 나눠 드시는 것이 가장 알맞습니다.'
+            },
+            {
+                title: '4. 나무 연기를 활용한 훈제(Wędzone) 기술',
+                desc: '소시지뿐만 아니라 치즈, 햄, 생선까지 참나무·너도밤나무 연기로 훈연하는 전통이 깊어 음식 전반에 깊고 스모키한 향이 배어 있습니다.'
+            },
+            {
+                title: '5. 감자와 호밀 중심의 구수한 탄수화물',
+                desc: '식전 빵은 묵직한 사워도우 호밀빵이 기본이며, 메인 요리의 사이드 역시 삶은 감자, 으깬 감자, 바삭한 감자전 등 감자 요리가 매우 다양합니다.'
+            }
+        ];
+
+        // 3. 거점 도시별 원데이 코스 데이터
+        const citySpots = {
+            warsaw: {
+                cityName: '바르샤바 (Warszawa)',
+                summary: '구시가지와 왕실 공원이 차로 10~15분 거리에 있어 체력 소모 없이 품격 있게 산책하고 식사하기 가장 좋은 동선입니다.',
+                spots: [
+                    {
+                        time: '오전 / 오후 2시간',
+                        name: '바르샤바 구시가지 (Stare Miasto)',
+                        tag: '유네스코 세계유산 · 도보 산책',
+                        desc: '2차 세계대전 이후 벽돌 하나까지 완벽히 복원한 아름다운 구시가지입니다. 아담한 규모라 1~2시간이면 여유롭게 둘러볼 수 있으며, 골목마다 수준 높은 폴란드 전통 레스토랑이 밀집해 있어 식사 동선과 바로 연결됩니다.'
+                    },
+                    {
+                        time: '오후 1시간 30분',
+                        name: '와젠키 공원 (Łazienki Królewskie)',
+                        tag: '수상 궁전 · 평지 산책로',
+                        desc: '구시가지에서 택시로 10~15분 거리의 도심 속 왕실 공원입니다. 호수 위에 떠 있는 듯한 수상 궁전과 울창한 숲길이 잘 정비되어 있어 상사분과 담소를 나누며 걷기에 최적의 장소입니다.'
+                    }
+                ]
+            },
+            krakow: {
+                cityName: '크라쿠프 (Kraków)',
+                summary: '전쟁 피해를 입지 않은 중세 옛 수도로, 평지 위주의 중앙 광장과 바벨 성을 묶거나 근교 소금광산을 다녀오는 코스가 대표적입니다.',
+                spots: [
+                    {
+                        time: '반나절 (약 3시간)',
+                        name: '중앙 광장 (Rynek Główny) & 바벨 성',
+                        tag: '중세 원형 보존 · 평지 동선',
+                        desc: '유럽 최대 규모의 중세 광장을 중심으로 직물 회관과 성모 마리아 성당을 둘러본 뒤, 도보 10분 거리의 역대 폴란드 왕들의 거처인 바벨 성까지 완만한 동선으로 이동할 수 있습니다.'
+                    },
+                    {
+                        time: '반나절 (약 3시간)',
+                        name: '비엘리치카 소금광산 (Wieliczka)',
+                        tag: '지하 100m 소금 성당 · 압도적 볼거리',
+                        desc: '시내에서 차로 약 25분 거리에 있습니다. 지하 100m 아래 소금을 깎아 만든 거대한 성당과 샹들리에가 펼쳐져 폴란드에서 가장 인상적인 볼거리로 꼽힙니다. (영어 가이드 투어 사전 예약 필수)'
+                    }
+                ]
+            },
+            wroclaw: {
+                cityName: '브로츠와프 (Wrocław)',
+                summary: '오데르 강과 운하가 흐르는 아름다운 서부 거점 도시로, 광장과 대성당 섬이 도보권에 모여 있어 이동이 매우 간편합니다.',
+                spots: [
+                    {
+                        time: '오후 2시간',
+                        name: '브로츠와프 시장 광장 (Rynek)',
+                        tag: '파스텔톤 건축 · 청동 난쟁이 찾기',
+                        desc: '고딕 양식의 구시청사와 파스텔톤 건물들이 늘어선 화사한 광장입니다. 거리 곳곳에 숨어 있는 수백 개의 작은 청동 난쟁이 동상을 발견하는 소소한 재미가 있으며 노천 레스토랑 분위기가 훌륭합니다.'
+                    },
+                    {
+                        time: '해 질 녘 1시간',
+                        name: '오스트루프 툼스키 (대성당 섬)',
+                        tag: '가스등 점등식 · 고즈넉한 야경',
+                        desc: '광장에서 다리를 건너 도보 10분 거리에 있는 도시의 발상지입니다. 해 질 녘 검은 망토를 입은 점등원이 가스등을 직접 손으로 켜는 낭만적인 풍경을 감상하실 수 있습니다.'
+                    }
+                ]
+            }
+        };
+
+        // 상태 관리: 기본 추천 조합 3가지 미리 세팅
+        let selectedFoodIds = ['zurek', 'pierogi', 'golonka'];
+        let currentFoodFilter = 'all';
+        let currentPhraseFilter = 'dining';
+
+        // 초기화 실행
+        window.onload = function () {
+            renderFoodList();
+            renderPhrasesList();
+            renderTipsSection();
+            selectCity('warsaw');
+            updateComboBar();
+        };
+
+        // 메인 탭 전환 (4개 탭)
+        function switchTab(tabName) {
+            ['food', 'phrases', 'tips', 'spots'].forEach(t => {
+                const section = document.getElementById(`section-${t}`);
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tabName) {
+                    section.classList.remove('hidden');
+                    btn.className = 'tab-btn py-2 px-1 rounded-lg text-[11px] font-bold transition-all bg-gold-500 text-navy-950 shadow';
+                } else {
+                    section.classList.add('hidden');
+                    btn.className = 'tab-btn py-2 px-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-slate-200 transition-all';
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 폴란드어 카테고리 필터링
+        function filterPhrases(category) {
+            currentPhraseFilter = category;
+            ['dining', 'hotel', 'travel'].forEach(cat => {
+                const btn = document.getElementById(`phrase-btn-${cat}`);
+                if (cat === category) {
+                    btn.className = 'phrase-filter-btn py-2 px-2 rounded-xl text-xs font-bold bg-gold-500 text-navy-950 shadow transition';
+                } else {
+                    btn.className = 'phrase-filter-btn py-2 px-2 rounded-xl text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700 transition';
+                }
+            });
+            renderPhrasesList();
+        }
+
+        // 폴란드어 리스트 렌더링
+        function renderPhrasesList() {
+            const container = document.getElementById('polish-phrases-container');
+            const filtered = polishPhrases.filter(p => p.category === currentPhraseFilter);
+
+            container.innerHTML = filtered.map((p) => {
+                const actualIndex = polishPhrases.findIndex(item => item.pl === p.pl && item.ko === p.ko);
+                return `
+                    <div onclick="openPhraseModal(${actualIndex})" class="gold-border-card rounded-xl p-3 flex items-center justify-between gap-3 cursor-pointer active:scale-[0.99] transition">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="px-1.5 py-0.5 rounded bg-burgundy-800/80 text-rose-200 text-[10px] font-medium shrink-0">
+                                    ${p.situation}
+                                </span>
+                                <span class="text-xs font-bold text-slate-100 truncate">${p.ko}</span>
+                            </div>
+                            <p class="text-sm font-bold text-gold-400 mt-1">${p.pl}</p>
+                            <p class="text-[11px] text-slate-400 mt-0.5">발음: <span class="text-slate-200">${p.pron}</span></p>
+                        </div>
+                        <span class="shrink-0 w-7 h-7 rounded-lg bg-navy-950 border border-slate-700 flex items-center justify-center text-xs text-gold-400" title="크게 보기">
+                            🔍
+                        </span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 음식 카테고리 필터링
+        function filterFood(category) {
+            currentFoodFilter = category;
+            document.querySelectorAll('.food-filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.className = 'food-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gold-500 text-navy-950';
+                } else {
+                    btn.className = 'food-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700';
+                }
+            });
+            renderFoodList();
+        }
+
+        // 로컬 푸드 카드 렌더링
+        function renderFoodList() {
+            const container = document.getElementById('food-list-container');
+            const filtered = currentFoodFilter === 'all'
+                ? localFoods
+                : localFoods.filter(item => item.category === currentFoodFilter);
+
+            container.innerHTML = filtered.map(food => {
+                const isSelected = selectedFoodIds.includes(food.id);
+                return `
+                    <div onclick="toggleFoodSelection('${food.id}')" class="gold-border-card ${isSelected ? 'selected' : ''} rounded-2xl p-4 cursor-pointer transition-all active:scale-[0.99]">
+                        <div class="flex items-start justify-between gap-2">
+                            <div>
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-navy-950 text-gold-400 border border-gold-500/30">
+                                        ${food.categoryLabel}
+                                    </span>
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-burgundy-800/70 text-rose-200">
+                                        ${food.tag}
+                                    </span>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-100 mt-1.5 flex items-baseline gap-2 flex-wrap">
+                                    <span>${food.nameKo}</span>
+                                    <span class="text-xs font-serif italic text-gold-400 font-normal">${food.namePl}</span>
+                                </h3>
+                            </div>
+                            <button type="button" class="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition ${isSelected ? 'bg-gold-500 text-navy-950' : 'bg-navy-950 text-slate-400 border border-slate-700'}">
+                                ${isSelected ? '✓' : '+'}
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-2">
+                            ${food.desc}
+                        </p>
+                        <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                            <span>📍 ${food.region}</span>
+                            <span class="${isSelected ? 'text-gold-400 font-semibold' : ''}">
+                                ${isSelected ? '조합표에 담김' : '터치하여 조합에 추가'}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 음식 찜하기 토글
+        function toggleFoodSelection(id) {
+            if (selectedFoodIds.includes(id)) {
+                selectedFoodIds = selectedFoodIds.filter(item => item !== id);
+            } else {
+                selectedFoodIds.push(id);
+            }
+            renderFoodList();
+            updateComboBar();
+        }
+
+        // 하단 플로팅 조합 바 업데이트
+        function updateComboBar() {
+            const countBadge = document.getElementById('combo-count-badge');
+            const previewText = document.getElementById('combo-preview-text');
+            countBadge.textContent = selectedFoodIds.length;
+
+            if (selectedFoodIds.length === 0) {
+                previewText.textContent = '먹고 싶은 메뉴를 선택해 담아보세요';
+            } else {
+                const names = selectedFoodIds.map(id => {
+                    const found = localFoods.find(f => f.id === id);
+                    return found ? found.nameKo : '';
+                }).filter(Boolean);
+                previewText.textContent = names.join(' · ');
+            }
+        }
+
+        // 조합 모달 열기/닫기
+        function openComboModal() {
+            const listContainer = document.getElementById('combo-modal-list');
+            if (selectedFoodIds.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="text-center py-8 text-slate-400 text-xs">
+                        아직 담긴 메뉴가 없습니다.<br>로컬 푸드 카드의 <strong class="text-gold-400">+ 버튼</strong>을 눌러 메뉴를 담아보세요.
+                    </div>
+                `;
+            } else {
+                listContainer.innerHTML = selectedFoodIds.map(id => {
+                    const food = localFoods.find(f => f.id === id);
+                    if (!food) return '';
+                    return `
+                        <div class="bg-navy-950 border border-slate-800 rounded-xl p-3 flex items-center justify-between gap-3">
+                            <div>
+                                <span class="text-[10px] text-gold-400 font-medium">${food.categoryLabel}</span>
+                                <p class="text-sm font-bold text-slate-100">${food.nameKo}</p>
+                                <p class="text-xs font-serif text-gold-400 mt-0.5">${food.namePl}</p>
+                            </div>
+                            <button onclick="removeFromModal('${food.id}')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-400 text-xs hover:text-rose-300">
+                                제외
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+            }
+            document.getElementById('combo-modal').classList.remove('hidden');
+        }
+
+        function removeFromModal(id) {
+            toggleFoodSelection(id);
+            openComboModal();
+        }
+
+        function resetCombo() {
+            selectedFoodIds = [];
+            renderFoodList();
+            updateComboBar();
+            openComboModal();
+        }
+
+        function closeComboModal() {
+            document.getElementById('combo-modal').classList.add('hidden');
+        }
+
+        // 폴란드어 큰 글씨 모달 열기/닫기
+        function openPhraseModal(idx) {
+            const p = polishPhrases[idx];
+            if (!p) return;
+            document.getElementById('phrase-modal-situation').textContent = p.situation;
+            document.getElementById('phrase-modal-pl').textContent = p.pl;
+            document.getElementById('phrase-modal-en').textContent = p.en;
+            document.getElementById('phrase-modal-ko').textContent = p.ko;
+            document.getElementById('phrase-modal-pron').textContent = `발음: [${p.pron}]`;
+            document.getElementById('phrase-modal').classList.remove('hidden');
+        }
+
+        function closePhraseModal() {
+            document.getElementById('phrase-modal').classList.add('hidden');
+        }
+
+        // 팁 & 특징 탭 렌더링
+        function renderTipsSection() {
+            const tipsEl = document.getElementById('restaurant-tips-container');
+            tipsEl.innerHTML = restaurantTips.map(tip => `
+                <div class="gold-border-card rounded-xl p-3.5">
+                    <h3 class="text-xs font-bold text-slate-100">${tip.title}</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-1.5">${tip.desc}</p>
+                </div>
+            `).join('');
+
+            const rTraitsEl = document.getElementById('restaurant-traits-container');
+            rTraitsEl.innerHTML = restaurantTraits.map(item => `
+                <div class="bg-navy-950/80 border border-slate-800 rounded-xl p-3.5">
+                    <h3 class="text-xs font-bold text-gold-400">${item.title}</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-1">${item.desc}</p>
+                </div>
+            `).join('');
+
+            const fTraitsEl = document.getElementById('food-traits-container');
+            fTraitsEl.innerHTML = foodTraits.map(item => `
+                <div class="bg-navy-950/80 border border-slate-800 rounded-xl p-3.5">
+                    <h3 class="text-xs font-bold text-rose-300">${item.title}</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-1">${item.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        // 도시별 코스 선택 및 렌더링
+        function selectCity(cityKey) {
+            ['warsaw', 'krakow', 'wroclaw'].forEach(key => {
+                const btn = document.getElementById(`city-btn-${key}`);
+                if (key === cityKey) {
+                    btn.className = 'city-btn py-2.5 px-2 rounded-xl text-xs font-bold bg-gold-500 text-navy-950 shadow transition';
+                } else {
+                    btn.className = 'city-btn py-2.5 px-2 rounded-xl text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700 transition';
+                }
+            });
+
+            const data = citySpots[cityKey];
+            const container = document.getElementById('city-spots-container');
+            container.innerHTML = `
+                <div class="bg-burgundy-900/40 border border-gold-500/30 rounded-2xl p-3.5">
+                    <h2 class="text-sm font-bold text-gold-400">${data.cityName} 추천 원데이 요약</h2>
+                    <p class="text-xs text-slate-200 leading-relaxed mt-1">${data.summary}</p>
+                </div>
+                ${data.spots.map((spot, idx) => `
+                    <div class="gold-border-card rounded-2xl p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-gold-500/20 text-gold-400 border border-gold-500/30">
+                                코스 ${idx + 1} · ${spot.time}
+                            </span>
+                            <span class="text-[11px] text-slate-400">${spot.tag}</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-100">${spot.name}</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">${spot.desc}</p>
+                    </div>
+                `).join('')}
+            `;
+        }
+    </script>
+</body>
+</html>
